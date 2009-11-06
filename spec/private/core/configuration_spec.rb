@@ -82,6 +82,15 @@ describe Webrat::Configuration do
       @config.selenium_browser_startup_timeout = 10
       @config.selenium_browser_startup_timeout.should == 10
     end
+    
+    it 'should have a rack config.ru file' do
+      @config.rack_config.should == "config.ru"
+    end
+
+    it 'should allow changing the path to the rack config.ru file' do
+      @config.rack_config = "foo/bar.ru"
+      @config.rack_config.should == "foo/bar.ru"
+    end
   end
 
 end

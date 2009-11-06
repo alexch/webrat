@@ -8,7 +8,7 @@ module Webrat
         def start
           fork do
             File.open('rack.pid', 'w') { |fp| fp.write Process.pid }
-            exec 'rackup', File.expand_path(Dir.pwd + '/config.ru'), '-p', Webrat.configuration.application_port.to_s
+            exec 'rackup', File.expand_path(Dir.pwd + '/' + Webrat.configuration.rack_config), '-p', Webrat.configuration.application_port.to_s
           end
         end
 

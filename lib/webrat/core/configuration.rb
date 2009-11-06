@@ -58,6 +58,9 @@ module Webrat
     # loop? Defaults to 10
     attr_accessor :infinite_redirect_limit
 
+    # What is the path to the rack config file used to start the application server in selenium+sinatra mode? Defaults to "config.ru".
+    attr_accessor :rack_config
+
     def initialize # :nodoc:
       self.open_error_files = true
       self.application_environment = :test
@@ -68,6 +71,7 @@ module Webrat
       self.infinite_redirect_limit = 10
       self.selenium_browser_key = '*firefox'
       self.selenium_browser_startup_timeout = 5
+      self.rack_config = "config.ru"
     end
 
     def open_error_files? #:nodoc:
