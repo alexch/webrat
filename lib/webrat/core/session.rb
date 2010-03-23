@@ -92,10 +92,6 @@ For example:
       page
     end
 
-    def doc_root #:nodoc:
-      nil
-    end
-
     def header(key, value)
       @custom_headers[key] = value
     end
@@ -105,7 +101,7 @@ For example:
     end
 
     def basic_auth(user, pass)
-      encoded_login = ["#{user}:#{pass}"].pack("m*")
+      encoded_login = ["#{user}:#{pass}"].pack("m*").gsub(/\n/, '')
       header('HTTP_AUTHORIZATION', "Basic #{encoded_login}")
     end
 

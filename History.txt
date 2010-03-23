@@ -1,4 +1,28 @@
-== 0.6.rc1 / 2009-09-22
+== 0.7.1
+
+* Minor enhancements
+
+  * Added application_port_for_selenium to webrat configuration. The use case is when you want to test through a web server sitting in front of your application server. (Luke Melia)
+  * New webrat configuration option selenium_firefox_profile which is passed to selenium server
+
+== 0.7.0 / 2010-01-17
+
+* Major enhancements
+
+  * Upgrade bundled Selenium server JAR to 2.0a1 (Henry Poydar and Jake Scruggs)
+
+* Minor enhancements
+
+  * Save and open page directory specified via configuration, defaults to tmp dir otherwise current dir (Noah Davis)
+
+* Bug fixes
+
+  * Added missing dependency "rack-test" to gemspec (LH #339) (Noah Davis)
+  * Removed save_and_open_page's rewriting of static asset paths before saving (was not actually working) (Noah Davis)
+  * Make "should contain" ignore extra whitespace when doing string comparisons (Noah Davis)
+  * Make selenium matchers handle negative match more consistently with positive match (Luke Melia)
+   
+== 0.6.0 / 2009-11-28
 
 REMOVED: Support for Hpricot + REXML as an alternative to Nokogiri.
 
@@ -12,6 +36,7 @@ CHANGED: Due to a reorganization, if you're currently requiring "webrat/rspec-ra
 
 * Minor enhancements
 
+  * Support Rails 2.3.4 JavaScript form authenticity tokens in simulated mode (Jonathan Weiss)
   * When a timeout occurs in wait_for, include the HTML from Selenium in the exception
   * Update the Merb support to be based directly on Rack (Simon Rozet)
   * Support multiple select fields (Kieran P)
@@ -19,6 +44,8 @@ CHANGED: Due to a reorganization, if you're currently requiring "webrat/rspec-ra
 
 * Bug fixes
 
+  * Remove newlines from HTTP Basic authentication credentials (Michael Klett)
+  * Require nokogiri form rspec-rails.rb (David Chelimsky)
   * Fix logger issue when running inside Cucumber (Damian Janowski)
   * Fix various issues related to submitting values with HTML entities (Kieran P)
   * Call #to_i on the :count option in matchers (Michael Christenson II)
